@@ -16,7 +16,7 @@ export default function Home({ navigation }) {
   const [activeTab, setActiveTab] = useState("Delivery");
 
   const getRestaurantsFromYelp = () => {
-    const yelpUrl = `${YELP_BASE_URL}search?term=restaurants&location=${city}`;
+    const yelpUrl = `${YELP_BASE_URL}/search?term=restaurants&location=${city}`;
 
     const apiOptions = {
       headers: {
@@ -43,7 +43,7 @@ export default function Home({ navigation }) {
     <SafeAreaView style={{ backgroundColor: "#eee", flex: 1 }}>
       <View style={{ backgroundColor: "white", padding: 15 }}>
         <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} />
-        <SearchBar cityHandler={setCity} />
+        <SearchBar setCity={setCity} />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Categories />
