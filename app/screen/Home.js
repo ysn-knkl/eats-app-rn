@@ -8,9 +8,7 @@ import RestaurantItems, {
   localRestaurants,
 } from "../components/home/RestaurantItems";
 import SearchBar from "../components/home/SearchBar";
-
-const YELP_API_KEY =
-  "94b1lvaGiAB--m58gTWjo3OFrCurlr2jHFbWKrEDBe0wJUAlBa9Pnr_WgZSj303o1PsPM0Maog0DqYDDJegl9jeIiHM6ZXptKc4m6VAGKMUm-CVBkMHt_kCZaqJGY3Yx";
+import {YELP_API_KEY, YELP_BASE_URL} from "@env"
 
 export default function Home({ navigation }) {
   const [restaurantData, setRestaurantData] = useState(localRestaurants);
@@ -18,7 +16,7 @@ export default function Home({ navigation }) {
   const [activeTab, setActiveTab] = useState("Delivery");
 
   const getRestaurantsFromYelp = () => {
-    const yelpUrl = `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${city}`;
+    const yelpUrl = `${YELP_BASE_URL}search?term=restaurants&location=${city}`;
 
     const apiOptions = {
       headers: {
